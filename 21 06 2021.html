@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  
+    <title>Exercicio 7.10</title>
+    <style>
+      div{color: hsl(155, 72%, 35%);
+          font-family:"Calisto MT", sans-serif;
+          }
+     
+  
+    Text{color: hsl(155, 72%, 35%);
+          font-family: "Calisto MT", sans-serif;
+         }
+ 
+    
+         input {
+            color:#0059ff;
+            font-family: "Calisto MT", sans-serif;
+            border: 9px groove #48D1CC;
+            padding: 10px 10px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+              }
+             
+     button {
+            color:#0000CD;
+            font-family: "Calisto MT", sans-serif; 
+            border: 10px groove #48D1CC;
+            padding: 10px 10px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+              }
+          
+     </style>
+</head>
+<body>
+
+    
+   Cidadão1<br><input type="text" id="inp1" placeholder="Digite sua altura"> Genero<input type="text" id="inpGenero1" placeholder="0:Masc;1:Femin"></br> 
+   Cidadão2<br><input type="text" id="inp2"placeholder="Digite sua altura">  Genero<input type="text" id="inpGenero2"placeholder="0:Masc;1:Femin"></br> 
+  
+   Cidadão3<br><input type="text" id="inp3"placeholder="Digite sua altura">  Genero<input type="text" id="inpGenero3"placeholder="0:Masc;1:Femin"></br> 
+   Cidadão4<br><input type="text" id="inp4"placeholder="Digite sua altura">  Genero<input type="text" id="inpGenero4"placeholder="0:Masc;1:Femin"></br> 
+  
+   Cidadão5<br><input type="text" id="inp5"placeholder="Digite sua altura">  Genero<input type="text" id="inpGenero5"placeholder="0:Masc;1:Femin"></br> 
+   Cidadão6<br><input type="text" id="inp6"placeholder="Digite sua altura">  Genero<input type="text" id="inpGenero6"placeholder="0:Masc;1:Femin"></br> 
+   
+   Cidadão7<br><input type="text" id="inp7"placeholder="Digite sua altura">  Genero<input type="text" id="inpGenero7"placeholder="0:Masc;1:Femin"></br> 
+   Cidadão8<br><input type="text" id="inp8"placeholder="Digite sua altura">  Genero<input type="text" id="inpGenero8"placeholder="0:Masc;1:Femin"></br> 
+  
+   Cidadão9<br><input type="text" id="inp9"placeholder="Digite sua altura">  Genero<input type="text" id="inpGenero9"placeholder="0:Masc;1:Femin"></br> 
+   Cidadão10<br><input type="text" id="inp10"placeholder="Digite sua altura">Genero<input type="text" id="inpGenero10"placeholder="0:Masc;1:Femin"></br> 
+   
+    
+   <br><button  onclick="processarValores()">Processar</button></br>
+   <div id="divresultado"></div><br>
+
+    <script>
+    function processarValores()
+    {
+      var altura_Maior=0
+      var altura_Menor=999999
+      var melancia=0
+      var media=0
+      var alturaF=0
+      var Numero_Homem=0
+      var percentualdeH=0
+      var divisao_Media
+      var divisao_Media2
+
+
+    for(i=1;i<=10;i++)
+    {
+    
+    var endereco= "inp"+i
+    var altura= Number(document.getElementById(endereco).value)
+    var Genero= Number(document.getElementById("inpGenero"+i).value)
+
+
+       if(altura>altura_Maior)
+       {
+        
+         altura_Maior=altura
+       }
+      
+      if(altura<altura_Menor)
+       {
+         altura_Menor=altura
+       }
+      
+     
+      if(Genero==1)
+      {
+      alturaF+=altura
+      melancia++
+      }
+
+      
+      if(Genero==0)
+      {
+        Numero_Homem++
+      }
+      
+      media+=altura
+    }  
+    percentualdeH= (Numero_Homem*10)
+    divisao_Media=media/10
+    divisao_Media2= alturaF/melancia
+    document.getElementById("divresultado").innerHTML= "Maior:" + altura_Maior.toFixed(2)+ "<br> Menor:"+ altura_Menor.toFixed(2)
+    document.getElementById("divresultado").innerHTML+= " <br> Média:  "+ divisao_Media.toFixed(2)
+    document.getElementById("divresultado").innerHTML+= " <br> Média das Mulheres:  "+ divisao_Media2.toFixed(2)
+    document.getElementById("divresultado").innerHTML+= " <br>  Percentual de Homens:  "+ percentualdeH.toFixed(2)+" % "
+    }
+
+
+    </script>
+</body>
+</html>
